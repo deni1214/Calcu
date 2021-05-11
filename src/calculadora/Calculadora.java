@@ -20,10 +20,10 @@ public class Calculadora {
         
         Operacion calculadora = new Operacion();
 
-        calculadora.suma(3,2,4);
-        calculadora.resta(4);
+        calculadora.suma(7,8,10);
+        calculadora.resta(12);
         calculadora.multiplicacion(2);
-        calculadora.suma(5,6);
+        calculadora.division(5);
         calculadora.eliminar();
         calculadora.resultado();
         
