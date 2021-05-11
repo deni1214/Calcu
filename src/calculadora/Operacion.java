@@ -13,8 +13,8 @@ import javax.swing.JOptionPane;
  */
 public class Operacion {
     
-    public double resultado;
-    private int resultadoC;
+    public double resul;
+    private int resultado;
     private int num;
     private String signo;
     
@@ -23,14 +23,22 @@ public class Operacion {
     }
     
     public void valorI(int resultado){
-        this.resultado = resultado;
+        this.resul = resultado;
     }
     
     public void suma(int ...numero){
         this.signo = "+";
         for (int i = 0; i < numero.length; i++) {
             this.num = numero[i];
-            this.resultado += this.num;
+            this.resul += this.num;
+        }
+    }
+
+    public void resta(int ...numero){
+        this.signo = "-";
+        for (int i = 0; i < numero.length; i++) {
+            this.num = numero[i];
+            this.resul -= this.num;
         }
     }
     
@@ -38,15 +46,7 @@ public class Operacion {
         this.signo = "*";
         for (int i = 0; i < numero.length; i++) {
             this.num = numero[i];
-            this.resultado *= this.num;
-        }
-    }
-    
-    public void resta(int ...numero){
-        this.signo = "-";
-        for (int i = 0; i < numero.length; i++) {
-            this.num = numero[i];
-            this.resultado -= this.num;
+            this.resul *= this.num;
         }
     }
     
@@ -54,34 +54,34 @@ public class Operacion {
         this.signo = "/";
         for (int i = 0; i < numero.length; i++) {
             if(numero[i] == 0){
-                resultado = 0;
+                resul = 0;
                 JOptionPane.showMessageDialog(null, "Introduce correctamente un numero de la division", "!ERROR", 0);
                 break;
             } else {
                 this.num = numero[i];
-                resultado /= this.num;
+                resul /= this.num;
             }
         }
     }
     
     public void eliminar(){
         if(this.signo.equalsIgnoreCase("+")){
-            this.resultado -= this.num;
+            this.resul-= this.num;
         } else if(this.signo.equalsIgnoreCase("-")){
-            this.resultado += this.num;
+            this.resul += this.num;
         } else if(this.signo.equalsIgnoreCase("*")){
-            this.resultado /= this.num;
+            this.resul/= this.num;
         } else if(this.signo.equalsIgnoreCase("/")){
-            this.resultado *= this.num;
+            this.resul *= this.num;
         }
     }
     
     public void resultado(){
-        resultadoC = (int)resultado;
-        if(resultado % resultadoC == 0){
-            System.out.println("resultado = " + resultadoC);
-        } else{
+        resultado = (int)resul;
+        if(resul % resultado == 0){
             System.out.println("resultado = " + resultado);
+        } else{
+            System.out.println("resultado = " + resul);
         } 
     }
     
